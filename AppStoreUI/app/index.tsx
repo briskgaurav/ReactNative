@@ -8,8 +8,7 @@ import {
   BellIcon,
 } from "react-native-heroicons/solid";
 import { storeColors } from "@/theme";
-import { categories } from "@/store/Categories";
-import GradientButton from "@/components/GradientButton";
+import Category from "@/components/Category";
 
 const index = () => {
   const [activeCategory, setactiveCategory] = useState("Action");
@@ -20,41 +19,16 @@ const index = () => {
       className="w-full flex-1"
     >
       <SafeAreaView>
-        <View className="container">
+        <View className="container py-2">
           <View className="nav flex-row items-center justify-between px-4">
             <Bars3CenterLeftIcon color={storeColors.text} size={30} />
             <BellIcon color={storeColors.text} size={30} />
           </View>
-          {/* Categories */}
 
-          <View className="mt-4 px-4">
-            <Text
-              style={{ color: storeColors.text }}
-              className="text-4xl font-bold"
-            >
-              Browse Game
-            </Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {categories.map((category) => {
-                if (activeCategory == category) {
-                  return (
-                   <GradientButton value={category} />
-                  )
-                } else {
-                  return (
-                    <TouchableOpacity
-                      onPress={() => setactiveCategory(category)}
-                      className="bg-sky-200 overflow-hidden mt-4 p-2 px-4 rounded-full mr-2"
-                    >
-                      <Text style={{ color: storeColors.text }}>
-                        {category}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                }
-              })}
-            </ScrollView>
-          </View>
+          {/* Categories */}
+          <Category activeCategory={activeCategory} setActiveCategory={setactiveCategory} />
+
+
         </View>
       </SafeAreaView>
     </LinearGradient>
