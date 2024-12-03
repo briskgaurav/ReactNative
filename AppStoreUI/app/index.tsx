@@ -30,8 +30,10 @@ const index = () => {
           <Category activeCategory={activeCategory} setActiveCategory={setactiveCategory} />
 
           { /* Featured Categories */}
-
           <Featured />
+
+          {/* Top Action Game */}
+          
 
 
         </View>

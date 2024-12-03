@@ -1,9 +1,10 @@
 export const featuredData = [
     {
+       
         id: 1,
-        title: 'Zooba',
-        image: require('../assets/images/zooba.png'),
-        downloads: '200k',
+        title: "Alto's Adventure",
+        image: require('../assets/images/altosAdventure.png'),
+        downloads: '20k',
         stars: 4
     },
     {
@@ -22,11 +23,12 @@ export const featuredData = [
     },
     
     {
-        id: 4,
-        title: "Alto's Adventure",
-        image: require('../assets/images/altosAdventure.png'),
-        downloads: '20k',
+        id:4 ,
+        title: 'Zooba',
+        image: require('../assets/images/zooba.png'),
+        downloads: '200k',
         stars: 4
+        
     },
   ]
 
