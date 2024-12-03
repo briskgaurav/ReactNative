@@ -10,6 +10,7 @@ import {
 import { storeColors } from "@/theme";
 import Category from "@/components/Category";
 import Featured from "@/components/Featured";
+import ActionGames from "@/components/ActionGames";
 
 const index = () => {
   const [activeCategory, setactiveCategory] = useState("Action");
@@ -17,7 +18,7 @@ const index = () => {
   return (
     <LinearGradient
       colors={["rgba(58, 131, 244,0.4)", "rgba(9, 181, 211, 0.4)"]}
-      className="w-full flex-1"
+      className="w-full h-screen flex-1"
     >
       <SafeAreaView>
         <View className="container py-2">
@@ -33,7 +34,7 @@ const index = () => {
           <Featured />
 
           {/* Top Action Game */}
-          
+          <ActionGames />
 
 
         </View>

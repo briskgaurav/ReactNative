@@ -18,12 +18,12 @@ const Category: React.FC<CategoryProps> = ({
         Browse Game
       </Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {categories.map((category) => {
+        {categories.map((category,index) => {
           if (activeCategory == category) {
-            return <GradientButton value={category} />;
+            return <GradientButton key={index} value={category} />;
           } else {
             return (
-              <TouchableOpacity
+              <TouchableOpacity key={index}
                 onPress={() => setActiveCategory(category)}
                 className="bg-sky-200 overflow-hidden mt-4 p-2 px-4 rounded-full mr-2"
               >
