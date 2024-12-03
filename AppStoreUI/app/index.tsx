@@ -9,6 +9,7 @@ import {
 } from "react-native-heroicons/solid";
 import { storeColors } from "@/theme";
 import Category from "@/components/Category";
+import Featured from "@/components/Featured";
 
 const index = () => {
   const [activeCategory, setactiveCategory] = useState("Action");
@@ -27,6 +28,10 @@ const index = () => {
 
           {/* Categories */}
           <Category activeCategory={activeCategory} setActiveCategory={setactiveCategory} />
+
+          { /* Featured Categories */}
+
+          <Featured />
 
 
         </View>
