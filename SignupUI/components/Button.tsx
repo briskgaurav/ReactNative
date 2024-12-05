@@ -4,8 +4,8 @@ import { colorStore } from '@/theme/ColorStore'
 
 const Button = (props:any) => {
   return (
-    <TouchableOpacity onPress={props.handleButtonClick} activeOpacity={0.5} style={{backgroundColor:colorStore.button , borderRadius:10}} className='flex items-center justify-center w-full py-5'>
-        <Text className='font-bold '>{props.title}</Text>
+    <TouchableOpacity onPress={props.onpress} activeOpacity={0.5} style={{backgroundColor:colorStore.button , borderRadius:10}} className={`flex items-center justify-center w-full py-4 ${props.padding}`}>
+        <Text className='text-2xl font-bold'>{props.title}</Text>
     </TouchableOpacity>
   )
 }

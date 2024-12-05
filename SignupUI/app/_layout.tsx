@@ -1,17 +1,23 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import { Stack } from "expo-router";
+import { StatusBar } from 'react-native';
+import { colorStore } from '@/theme/ColorStore';
+import { DarkTheme } from '@react-navigation/native';
 
 
-const _layout = () => {
+const rootLayout = () => {
   return (
+    <>
+
     <Stack screenOptions={{headerShown:false}}>
         <Stack.Screen name='index' />
         <Stack.Screen name='SignupScreen' />
+        <Stack.Screen name='LoginScreen' />
     </Stack>
-
+    <StatusBar backgroundColor={colorStore.bg} barStyle={'dark-content'} />
+    </>
   
   )
 }
 
-export default _layout
+export default rootLayout;
