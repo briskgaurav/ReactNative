@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyByz3Y7N3luI3_qDBgG3ldbdcl8jZAJO68",
+  apiKey: "your-api-key",
   authDomain: "react-native-5923b.firebaseapp.com",
   projectId: "react-native-5923b",
   storageBucket: "react-native-5923b.firebasestorage.app",

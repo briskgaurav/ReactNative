@@ -1,15 +1,29 @@
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colorStore } from "@/theme/ColorStore";
 import { useRouter } from "expo-router";
 import Button from "@/components/Button";
 import { ArrowLeftIcon } from "react-native-heroicons/outline";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/config/firebase.config";
 
 const SignupScreen = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const router = useRouter();
-  const handleButtonClick = () => {
-    router.navigate("/HomeScreen");
+
+  const handleButtonClick = async () => {
+    if (email && password) {
+      try {
+        await signInWithEmailAndPassword(auth,email,password);
+        router.navigate("/HomeScreen");
+
+      } catch (err:any) {
+        console.log(err.message);
+      }
+    }
   };
   return (
     <SafeAreaView style={{ backgroundColor: colorStore.bg }} className="flex-1">
@@ -39,7 +53,8 @@ const SignupScreen = () => {
             className="w-full px-5 py-4 bg-gray-100 rounded-xl"
             placeholder="Write your name.."
             
-            value="123@gmail.com"
+            value={email}
+            onChangeText={value=>setEmail(value)}
           />
         </View>
         <View className="w-full mb-4">
@@ -50,7 +65,8 @@ const SignupScreen = () => {
             secureTextEntry
             className="w-full  text-lg px-5 py-4 bg-gray-100 rounded-xl"
             placeholder="Write your name.."
-            value="123456"
+            value={password}
+            onChangeText={value=>setPassword(value)}
           />
         </View>
         <Button padding="py-4" onpress={handleButtonClick} title="Login" />

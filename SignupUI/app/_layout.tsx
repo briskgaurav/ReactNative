@@ -1,24 +1,30 @@
-import React from 'react'
+import React from "react";
 import { Stack } from "expo-router";
-import { StatusBar } from 'react-native';
-import { colorStore } from '@/theme/ColorStore';
-import { DarkTheme } from '@react-navigation/native';
+import { StatusBar } from "react-native";
+import { colorStore } from "@/theme/ColorStore";
+import useAuth from "@/hooks/useAuth";
 
+const RootLayout = () => {
+  const { user } = useAuth();
+  console.log("items" , user);
 
-const rootLayout = () => {
   return (
     <>
+      {user === null ? (
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="HomeScreen" />
+        </Stack>
+      ) : (
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="index" />
+          <Stack.Screen name="LoginScreen" />
+          <Stack.Screen name="SignupScreen" />
+        </Stack>
+      )}
 
-    <Stack screenOptions={{headerShown:false}}>
-        <Stack.Screen name='index' />
-        <Stack.Screen name='SignupScreen' />
-        <Stack.Screen name='LoginScreen' />
-        <Stack.Screen name='HomeScreen' />
-    </Stack>
-    <StatusBar backgroundColor={colorStore.bg} barStyle={'dark-content'} />
+      <StatusBar backgroundColor={colorStore.bg} barStyle={"dark-content"} />
     </>
-  
-  )
-}
+  );
+};
 
-export default rootLayout;
+export default RootLayout;
