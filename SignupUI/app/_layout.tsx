@@ -13,6 +13,7 @@ const rootLayout = () => {
         <Stack.Screen name='index' />
         <Stack.Screen name='SignupScreen' />
         <Stack.Screen name='LoginScreen' />
+        <Stack.Screen name='HomeScreen' />
     </Stack>
     <StatusBar backgroundColor={colorStore.bg} barStyle={'dark-content'} />
     </>
