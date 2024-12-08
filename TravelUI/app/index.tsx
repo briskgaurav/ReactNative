@@ -12,13 +12,13 @@ const index = () => {
   const router = useRouter();
   
   return (
-    <View className="flex-1 flex justify-end">
+    <View className="flex-1 flex justify-end relative">
       <Image
         className="h-full w-full absolute"
         source={require("../assets/images/home.jpg")}
       />
 
-      <View className="p-5 pb-10 flex gap-8 ">
+      <View className="p-5 pb-10 flex gap-8 relative">
         <LinearGradient
           colors={["transparent", "rgba(3,105,161,0.8)"]}
           style={{ width: wp(100), height: hp(60) }}
@@ -38,7 +38,7 @@ const index = () => {
         </View>
 
         <TouchableOpacity onPress={()=>router.navigate('/MainScreen')} activeOpacity={0.5} style={{width:wp(40)}} className="px-12 p-3 bg-orange-500 mx-auto rounded-full">
-          <Text style={{ fontSize: wp(5.5) }} className="font-bold text-white ">
+          <Text style={{ fontSize: wp(5) }} className="font-bold text-white text-center ">
             Let's Go
           </Text>
         </TouchableOpacity>
