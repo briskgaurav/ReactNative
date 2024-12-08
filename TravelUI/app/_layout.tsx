@@ -5,7 +5,8 @@ import "../global.css"
 export default function RootLayout() {
   return (
    <Stack screenOptions={{headerShown:false}}>
-     {/* Your routes here */}
+    <Stack.Screen name="index" />
+     <Stack.Screen name="MainScreen" />
    </Stack>
   );
 }
