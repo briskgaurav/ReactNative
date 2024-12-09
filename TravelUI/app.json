@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/home.jpg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.briskgaurav.TravelUI"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "c2c37e87-8758-46fa-83cf-9bd2276a8839"
+      }
     }
   }
 }

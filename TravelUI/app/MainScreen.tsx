@@ -25,7 +25,7 @@ const MainScreen = () => {
   return (
     <SafeAreaView className="flex-1 flex bg-white">
       <ScrollView showsVerticalScrollIndicator={false} className={marginTop}>
-        //INFO: Header
+        {/* //INFO: Header */}
         <View className="flex-row justify-between items-center py-2 mx-5 mb-10">
           <Text style={{ fontSize: wp(7) }} className="font-bold text-zinc-800">
             Let's Discover
@@ -37,7 +37,8 @@ const MainScreen = () => {
             />
           </TouchableOpacity>
         </View>
-        //INFO: SearchBar
+        {/* //INFO: SearchBar */}
+
         <View className="flex-row px-4 py-3 bg-neutral-100 rounded-full items-center mx-5 mb-10">
           <MagnifyingGlassIcon size={25} color={"black"} />
           <TextInput
@@ -46,13 +47,13 @@ const MainScreen = () => {
             placeholder="Search destination"
           />
         </View>
-        //INFO: Destination Type
+        {/* //INFO: Destination Type */}
         <DestinationCategory />
 
-        //INFO: SortCategories
+        {/* //INFO: SortCategories */}
         <SortCategory />
 
-        //INFO: Popular Destinations
+        {/* //INFO: Popular Destinations */}
         <Suggestions />
 
       </ScrollView>
