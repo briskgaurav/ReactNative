@@ -49,7 +49,7 @@ export default function RecipeDetails() {
           />
         </View>
         <ChevronLeftIcon
-          className="absolute right-20 z-10
+          className="absolute top-0 right-20 z-10
              bg-red-700"
           color={"red"}
           size={30}
