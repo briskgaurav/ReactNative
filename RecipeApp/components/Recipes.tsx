@@ -18,6 +18,7 @@ const Recipes: React.FC<RecipesProps> = ({ router, recipes }) => {
       <Text className="text-3xl text-neutral-700 font-bold mb-4">Recipes</Text>
       <View className="flex-row items-center justify-between flex-wrap gap-4">
         {recipes.map((recipe) => {
+          
           return (
             <TouchableOpacity
               onPress={() =>
@@ -40,7 +41,7 @@ const Recipes: React.FC<RecipesProps> = ({ router, recipes }) => {
                 className="w-full h-full"
                 source={{ uri: recipe.strMealThumb }}
               />
-              <View className="absolute bottom-0 left-0 px-4 w-full  bg-white/80 py-2">
+              <View style={{borderBottomEndRadius:20, borderBottomLeftRadius:20}} className="absolute bottom-0 left-0 px-4 w-full  bg-orange-400/80 py-2">
                 <Text className=" text-black font-bold text-center shadow-black text-md">
                   {recipe.strMeal}
                 </Text>

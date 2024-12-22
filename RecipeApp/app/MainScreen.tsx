@@ -4,7 +4,6 @@ import {
   Image,
   StatusBar,
   TouchableOpacity,
-  ImageSourcePropType,
   ScrollView,
 } from "react-native";
 import React, { useEffect, useState } from "react";
@@ -32,12 +31,26 @@ const MainScreen = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("Dessert");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
   const router = useRouter();
 
   useEffect(() => {
     getCategories();
-    getRecipes();
-  }, []);
+    getRecipes(activeCategory);
+  }, [activeCategory]);
+
+  const handleSubmitSearch = () => {
+    if (!searchQuery) {
+      setFilteredRecipes(recipes);
+    } else {
+      setFilteredRecipes(
+        recipes.filter((recipe) =>
+          recipe.strMeal.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      );
+    }
+  };
 
   const getCategories = async () => {
     try {
@@ -51,17 +64,22 @@ const MainScreen = () => {
       console.error(error);
     }
   };
-  const getRecipes = async (category = "Beef") => {
+  const getRecipes = async (category: string) => {
     try {
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
       );
       if (response && response.data) {
         setRecipes(response.data.meals);
+        setFilteredRecipes(response.data.meals);
+        setSearchQuery("");
       }
     } catch (error) {
       console.error(error);
     }
+  };
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
   };
 
   return (
@@ -85,7 +103,7 @@ const MainScreen = () => {
         </View>
         <View className="mt-8 mx-4">
           <Text className="font-bold text-xl text-neutral-700">
-            Hello,Gaurav
+            Feelin' Hungry?
           </Text>
           <View className="mt-2">
             <Text className="font-bold text-4xl text-neutral-800">
@@ -98,7 +116,11 @@ const MainScreen = () => {
           </View>
         </View>
         {/* SearchBar */}
-        <SearchBox />
+        <SearchBox
+          searchQuery={searchQuery}
+          handleSubmitSearch={handleSubmitSearch}
+          onchange={handleSearchChange}
+        />
         {/* Categories */}
         {categories.length > 0 && (
           <Categories
@@ -109,8 +131,13 @@ const MainScreen = () => {
         )}
 
         {/* Recipes */}
-
-        <Recipes router={router} recipes={recipes} />
+        {filteredRecipes.length > 0 ? (
+          <Recipes router={router} recipes={filteredRecipes} />
+        ) : (
+            <Text className="text-center text-xl text-neutral-800 mt-10">
+              No recipes found.
+            </Text>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
