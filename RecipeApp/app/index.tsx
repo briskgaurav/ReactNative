@@ -5,8 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
-import { useRouter } from "expo-router";
-
+import { SplashScreen, useRouter } from "expo-router";
 
 const index = () => {
   const router = useRouter();

@@ -14,7 +14,7 @@ interface RecipesProps {
 
 const Recipes: React.FC<RecipesProps> = ({ router, recipes }) => {
   return (
-    <View className="m-4 ">
+    <View className="m-4">
       <Text className="text-3xl text-neutral-700 font-bold mb-4">Recipes</Text>
       <View className="flex-row items-center justify-between flex-wrap gap-4">
         {recipes.map((recipe) => {
